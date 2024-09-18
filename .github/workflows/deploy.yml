@@ -20,20 +20,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install gh-pages
-        run: npm install gh-pages --save-dev
+      - name: List files before build
+        run: ls -la
 
       - name: Build
         run: npm run build
 
+      - name: List files after build
+        run: ls -la
+
+      - name: List dist directory
+        run: ls -la dist
+
       - name: Deploy
-        run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          git remote set-url origin https://${github_token}@github.com/${repository}
-          npm run deploy
-        env:
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
+          publish_dir: ./dist
