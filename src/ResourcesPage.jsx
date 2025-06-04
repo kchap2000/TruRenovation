@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ResourceCard = ({ title, description, icon, link }) => (
-  <div style={{
-    backgroundColor: 'white',
-    borderRadius: '8px',
-    padding: '24px',
-    marginBottom: '24px',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    transition: 'transform 0.3s ease-in-out',
-    ':hover': {
-      transform: 'translateY(-5px)'
-    }
-  }}>
+  <div
+    className="resource-card"
+    style={{
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '24px',
+      marginBottom: '24px',
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+      transition: 'transform 0.3s ease-in-out'
+    }}
+  >
     <div style={{display: 'flex', alignItems: 'center', marginBottom: '16px'}}>
       <div style={{fontSize: '32px', marginRight: '16px'}}>{icon}</div>
       <h3 style={{fontFamily: 'Georgia, serif', fontSize: '24px', fontWeight: 'bold', color: '#2563eb'}}>{title}</h3>
